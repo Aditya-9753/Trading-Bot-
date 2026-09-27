@@ -50,7 +50,7 @@ jobs:
             type=ref,event=tag
 
       - name: Build & Push Backend Image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: ./backend
           push: true
@@ -70,7 +70,7 @@ jobs:
             type=ref,event=tag
 
       - name: Build & Push Frontend Image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: ./frontend
           push: true
