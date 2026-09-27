@@ -68,8 +68,9 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="TradeBot API", version="1.0.0", lifespan=lifespan,
               description="Paper-trading platform with the Hybrid Algorithm v1.2. All money is virtual.")
-app.add_middleware(CORSMiddleware, allow_origins=settings.CORS_ORIGINS, allow_credentials=True,
-                   allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(CORSMiddleware, allow_origins=settings.CORS_ORIGINS,
+                   allow_origin_regex=r"https://.*\.vercel\.app|http://localhost:\d+",
+                   allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
 
 @app.exception_handler(RequestValidationError)
@@ -84,6 +85,20 @@ async def validation_handler(request: Request, exc: RequestValidationError):
 
 for r in (auth.router, markets.router, trading.router, strategy.router, misc.router):
     app.include_router(r, prefix="/api/v1")
+
+
+@app.get("/")
+def root():
+    return {
+        "status": "online",
+        "service": "TradeBot API",
+        "version": "1.0.0",
+        "simulator": settings.ENABLE_SIMULATOR,
+        "docs": "/docs",
+        "api_v1": "/api/v1",
+        "health": "/api/health",
+        "message": "TradeBot backend is running. Visit /docs for the API reference."
+    }
 
 
 @app.get("/api/health")
