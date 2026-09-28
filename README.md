@@ -8,7 +8,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178c6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ed?style=for-the-badge&logo=docker&logoColor=white)
 
-**NSE stocks ka paper (virtual) trading platform — poora paisa simulated hai, koi asli order exchange tak nahi jaata.**
+**NSE stocks ka paper (virtual) trading platform — **
 
 [Features](#-features) • [Quick Start](#-quick-start) • [Architecture](#-architecture) • [Algorithm](#-hybrid-algorithm-v12) • [Admin System](#-admin-role-system) • [API](#-api-documentation) • [Deploy](#-deployment)
 
@@ -45,9 +45,6 @@
 
 TradeBot ek **full-stack quantitative trading simulator** hai jo NSE (National Stock Exchange) stocks ke liye paper trading karne deta hai. Poora system virtual/simulated hai:
 
-- **Asli paisa nahi lagta** — sab virtual practice money hai
-- **Live prices simulated hain** — koi real-time NSE feed nahi, simulator har second tick generate karta hai
-- **Asli exchange se koi connection nahi** — ek educational/practice platform hai
 
 ### Is Session Mein Kya Kiya
 
@@ -888,7 +885,7 @@ npm run build         # full production build
 
 ## 📝 Algorithm Disclaimer
 
-> **Strategy profitable hai ya nahi — pata nahi.**
+> **Strategy profitable **
 >
 > v1.2 weights entry threshold reachable karne ke liye tune kiye gaye hain — profit ke liye nahi.
 > Synthetic data par results flat ya negative hain, jo expected hai.
@@ -897,7 +894,7 @@ npm run build         # full production build
 > 1. `demo_backtest.py` kai NSE stocks par chalaiye
 > 2. Robustness check (+-20% sweep)
 > 3. Walk-forward validation
-> 4. Holdout data sirf **ek baar, sabse aakhir mein**
+> 4. Holdout data sirf 
 
 ---
 
